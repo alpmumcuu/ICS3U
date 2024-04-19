@@ -1,41 +1,70 @@
+// Define a function called whoAreYou
 function whoAreYou() {
+    // Get input from user
     let name = prompt("What is your name?");
     let age = prompt("How old are you?");
-    let favouriteHobby = prompt("What is your favourite hobby?");
-    console.log(`Hello, ${name}, you are ${age} years old and your favourite hobby is ${favouriteHobby}!`);
+    let favouriteHobby = prompt("What do you enjoy doing the most?");
+    
+    // Display user information
+    console.log(`Hello, ${name}, you are ${age} years old and your favorite hobby is ${favouriteHobby}!`);
 }
 
+// Define a function named taxCalculator that calculates tax and total amount
 function taxCalculator(dollars) {
-    let dollarsTax = dollars * 1.13;
-    console.log(`Value with tax: ${dollarsTax}`);
+    // Convert the input to a decimal number
+    dollars = parseFloat(dollars);
+    
+    // Calculate the tax and round it to two decimal places
+    let taxCalc = parseFloat((dollars * 0.13).toFixed(2));
+    
+    // Calculate the total amount including tax and round it to two decimal places
+    let total = parseFloat((dollars + taxCalc).toFixed(2));
+    
+    // Display the original value, tax calculated, and total amount
+    console.log(`Original Value: ${dollars.toFixed(2)}\nTax (13%): ${taxCalc.toFixed(2)}\nTotal: ${total.toFixed(2)}`);
 }
 
+// Define a function called calculator with an "operator" parameter
 function calculator(operator) {
+    // Get user input for two numbers and convert them to floats
     let num1 = parseFloat(prompt("Enter the first number:"));
     let num2 = parseFloat(prompt("Enter the second number:"));
+
+    // Perform calculation based on the operator provided
     if (operator === '+') {
         console.log(num1 + num2);
-    } else if (operator === '-') {
+    } 
+    else if (operator === '-') {
         console.log(num1 - num2);
-    } else if (operator === '*') {
+    } 
+    else if (operator === '*') {
         console.log(num1 * num2);
-    } else if (operator === '/') {
+    } 
+    else if (operator === '/') {
         if (num2 !== 0) {
             console.log(num1 / num2);
-        } else {
+        } 
+        else {
             console.log("Cannot divide by zero.");
         }
-    } else {
+    } 
+    else {
         console.log("Invalid operator.");
     }
 }
 
-function pythagorean(legA, legB, hypoteneuse) {
-    if (!hypoteneuse) {
+// Define a function called pythagorean with parameters to calculate missing side of a right triangle
+function pythagorean(legA, legB, hypotenuse) {
+    if (!hypotenuse) {
+        // Calculate and output the missing hypotenuse
         console.log(Math.sqrt(legA * legA + legB * legB));
-    } else if (!legA) {
-        console.log(Math.sqrt(hypoteneuse * hypoteneuse - legB * legB));
-    } else {
-        console.log(Math.sqrt(hypoteneuse * hypoteneuse - legA * legA));
+    }
+    else if (!legA) {
+        // Calculate and output the missing legA
+        console.log(Math.sqrt(hypotenuse * hypotenuse - legB * legB));
+    } 
+    else {
+        // Calculate and output the missing legB
+        console.log(Math.sqrt(hypotenuse * hypotenuse - legA * legA));
     }
 }
