@@ -1,54 +1,48 @@
-function isDivisibleBy3(num) {
-    return num % 3 === 0;
-}
+// 1.6 Logical Operators
+const prompt = require('prompt-sync')();
 
-function playGame() {
-    console.log("Welcome to Mr. Jamieson's number game!");
+let choice = prompt("Do you want to play a game? [y]/n: ") || 'y';
 
-    let play = prompt("Do you want to play a game? [y]/n: ").trim().toLowerCase() || 'y';
-    if (play !== 'y') {
-        console.log("Maybe next time!");
-        return;
+if (choice !== "n" && choice !== "y") {
+    console.log("wrong!!!\ninput either y or n to play.");
+} 
+else if (choice === "n") {
+    console.log("your loss");
+} 
+else {
+    let firstNumber = parseInt(prompt("Enter a whole number: "));
+    if (firstNumber > 10 && firstNumber < 50) {
+        console.log("The next number you choose must be greater than 50!");
     }
 
-    let num1 = parseInt(prompt("Enter your first number: "));
-    if (num1 > 10 && num1 < 50) {
-        console.log("Your next number should be greater than 50.");
+    let secondNumber = parseInt(prompt("Enter a second whole number: "), 10);
+    if (secondNumber % 2 == 0) {
+        console.log("The next number you choose must be an odd number");
+    } 
+    else {
+        console.log("The next number you choose must be an even number");
     }
 
-    let num2 = parseInt(prompt("Enter your second number: "));
-    if (num2 % 2 === 0) {
-        console.log("Your next number should be odd.");
+    let thirdNumber = parseInt(prompt("Input a third whole number: "), 10);
+
+    console.log("\nA set of three numbers is considered Squirrelly if their sum+1 is divisible by 10");
+    if ((firstNumber + secondNumber + thirdNumber + 1) % 10 == 0) {
+        console.log("The sum of your numbers is Squirrelly.");
+    } 
+    else {
+        console.log("The sum of your numbers is not Squirrelly.");
     }
 
-    let num3 = parseInt(prompt("Enter your third number: "));
-
-    // Check if the set of numbers is Jazzy
+    console.log("\nA set of three numbers is considered Jazzy if at least two of the numbers are divisible by 3.");
     let jazzyCount = 0;
-    if (isDivisibleBy3(num1)) {
-        jazzyCount++;
-    }
-    if (isDivisibleBy3(num2)) {
-        jazzyCount++;
-    }
-    if (isDivisibleBy3(num3)) {
-        jazzyCount++;
-    }
+    if (firstNumber % 3 == 0) jazzyCount++;
+    if (secondNumber % 3 == 0) jazzyCount++;
+    if (thirdNumber % 3 == 0) jazzyCount++;
 
     if (jazzyCount >= 2) {
-        console.log("Your numbers are Jazzy!");
-    } else {
+        console.log("Your numbers are Jazzy.");
+    } 
+    else {
         console.log("Your numbers are not Jazzy.");
     }
-
-    // Check if the set of numbers is Squirrelly
-    let sum = num1 + num2 + num3;
-    if ((sum + 1) % 10 === 0) {
-        console.log("Your numbers are Squirrelly!");
-    } else {
-        console.log("Your numbers are not Squirrelly.");
-    }
 }
-
-// Call the function to play the game
-playGame();
