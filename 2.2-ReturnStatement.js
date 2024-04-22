@@ -51,7 +51,7 @@ function ghost_watch(polter, wolter){
     }
     
 }
-//Testing
+
 console.log(is_it_the_weekend(1))
 console.log(evNineIble(36))
 console.log(area_circle(7))
