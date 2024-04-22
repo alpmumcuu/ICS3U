@@ -1,5 +1,5 @@
 function is_it_the_weekend(day){
-    if ((day == 1) || (day == 7)){
+    if ((day == 1 || 7)){
         return True;
     }
     else{
