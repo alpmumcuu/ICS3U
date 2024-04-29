@@ -1,14 +1,22 @@
 // Define a function called whoAreYou
 function whoAreYou() {
-    // Get input from user
+    // Prompt the user for their name
     let name = prompt("What is your name?");
-    let age = prompt("How old are you?");
-    let favouriteHobby = prompt("What do you enjoy doing the most?");
     
-    // Display user information
-    console.log(`Hello, ${name}, you are ${age} years old and your favorite hobby is ${favouriteHobby}!`);
+    // Prompt the user for their age
+    let age = prompt("How old are you?");
+    
+    // Prompt the user for their favorite hobby
+    let hobby = prompt("What is your favorite hobby?");
+    
+    // Construct the output message using the user's responses
+    let message = `Hello, ${name}, you are ${age} years old and your favorite hobby is ${hobby}!`;
+    
+    // Display the message to the user
+    alert(message);
 }
 
+// Call the function to execute the
 // Define a function named taxCalculator that calculates tax and total amount
 function taxCalculator(dollars) {
     // Convert the input to a decimal number
